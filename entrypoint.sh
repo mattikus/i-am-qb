@@ -4,13 +4,13 @@ set -e -u -o pipefail
 
 echo ARGS="$@"
 env
-repo_url=https://github.com/mattikus/lester-of-the-jungle
-lita_dir=/lester
+repo_url=https://github.com/mattikus/i-am-qb
+lita_dir=/qb
 
 mkdir -p $lita_dir
 cd $lita_dir
 
-# Grab the latest copy of lester
+# Grab the latest copy of QB
 if [[ ! -d ${lita_dir}/.git ]]; then
   git clone --depth 1 $repo_url $lita_dir
 else
