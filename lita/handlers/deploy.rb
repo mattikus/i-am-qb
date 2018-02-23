@@ -6,7 +6,7 @@ module Lita
       end
 
       on(:connected) do
-        target = Source.new(room: "qb-devel")
+        target = Source.new(room: "#qb-devel")
         robot.send_message(target, "I LIVE!!!")
       end
 
