@@ -19,4 +19,6 @@ Lita.configure do |config|
 
   config.handlers.ai.api_user = ENV['LITA_AI_USER']
   config.handlers.ai.api_key = ENV['LITA_AI_KEY']
+
+  config.handlers.deploy.development_room = "#qb-devel"
 end

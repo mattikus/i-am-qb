@@ -1,13 +1,18 @@
 module Lita
   module Handlers
     class Deploy < Lita::Extensions::GitHubWebHooksCore::HookReceiver
+      config :development_room
+
       def self.name
         "Deploy"
       end
 
+      def devel_room
+        Source.new(room: config.development_room)
+      end
+
       on(:connected) do
-        target = Source.new(room: "#qb-devel")
-        robot.send_message(target, "I LIVE!!!")
+        robot.send_message(devel_room, "I LIVE!!!")
       end
 
       http.post "/github-web-hooks", :receive_hook
@@ -21,6 +26,7 @@ module Lita
       on(:push) do |payload|
         if payload["ref"] =~ /master/
           logger.info("Received push event, commiting suicide!")
+          robot.send_message(devel_room, "Deploying sha: `#{payload["after"]}`")
           exit!
         end
       end
