@@ -7,6 +7,6 @@ module Lita
       end
     end
 
-    Lita.register_handler(Emoji)
+    Lita.register_handler(Responses)
   end
 end
