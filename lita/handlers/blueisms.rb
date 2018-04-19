@@ -1,7 +1,7 @@
 # Description:
 #   A plugin to give you fun blueisms upon request
 
-gelmanisms = [
+GELMANISMS = [
   "It's called...pairing.",
   "What could go wrong?",
   "The thing is...",
@@ -23,7 +23,7 @@ gelmanisms = [
   "It does seem like something that will subtley screw us",
 ]
 
-donisms = [
+DONISMS = [
   "What if we just <insert idea that has no thought for why $FOO is currently the way it is>",
   "REALLYYYYYYY?",
   "I HATE PROVOLONE",
@@ -31,7 +31,7 @@ donisms = [
 
 # There are none I'm perfect - Matt
 # Eyeroll - Katy
-mattikusisms = [
+MATTIKUSISMS = [
   "I am Matt! Meh meh meh meh meh.",
   "jar!",
 ],
@@ -39,16 +39,16 @@ mattikusisms = [
 module Lita
   module Handlers
     class Blueisms < Handler
-      route(/gelman( me)?$/i, command: true, help: { "gelman me" => "Shit Gelman Says", }) do
-        response.reply(":#{random(gelmanisms)}:")
+      route(/gelman( me)?$/i, command: true, help: { "gelman me" => "Shit Gelman Says", }) do |reponse|
+        response.reply(":#{random(GELMANISMS)}:")
       end
 
-      route(/don( me)?$/i, command: true, help: { "don me" => "Hi I'm Don and my voice GOES LOUD NOW", }) do
-        response.reply(":#{random(donisms)}:")
+      route(/don( me)?$/i, command: true, help: { "don me" => "Hi I'm Don and my voice GOES LOUD NOW", }) do |reponse|
+        response.reply(":#{random(DONISMS)}:")
       end
 
-      route(/mattikus( me)?$/i, command: true, help: { "mattikus me" => "Funny mattikus sayings", }) do
-        response.reply(":#{random(mattikusisms)}:")
+      route(/mattikus( me)?$/i, command: true, help: { "mattikus me" => "Funny mattikus sayings", }) do |reponse|
+        response.reply(":#{random(MATTIKUSISMS)}:")
       end
 
       def random(items)
