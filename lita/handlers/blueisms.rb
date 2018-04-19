@@ -36,15 +36,26 @@ BLUEISMS = {
     "I am Matt! Meh meh meh meh meh.",
     "jar!",
   ],
+
+  dave: [
+    "I think the only real risk is if there is a separate bug related to the work that we don't know about."
+  ],
+
+  katy: [
+    "OH! IO!",
+    "MICHIGAN SUCKS!",
+  ],
 }
 
 module Lita
   module Handlers
     class Blueisms < Handler
-      route(/(blue|gelman|don|mattikus)(?: me)?$/i, :random_saying, command: true, help: {
+      route(/(blue|#{BLUEISMS.keys.join('|')})(?: me)?$/i, :random_saying, command: true, help: {
         "gelman me" => "Is it though?",
         "don me" => "Hi I'm Don and my voice GOES LOUD NOW",
-        "mattikus me" => "Funny mattikus sayings",
+        "mattikus me" => "Problemattikus",
+        "dave me" => "Get ready to get Daved",
+        "katy me" => "I'm from Ohio!",
         "blue me" => "Shit Blue Says",
       })
 
@@ -54,7 +65,7 @@ module Lita
               else
                 response.match_data[1].to_sym
               end
-        response.reply(%Q["#{BLUEISMS[who].shuffle.first}" -- @#{who}])
+        response.reply(%Q["#{BLUEISMS[who].shuffle.first}" -- #{who}])
       end
     end
 
