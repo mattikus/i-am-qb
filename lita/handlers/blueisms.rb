@@ -39,15 +39,15 @@ MATTIKUSISMS = [
 module Lita
   module Handlers
     class Blueisms < Handler
-      route(/gelman( me)?$/i, command: true, help: { "gelman me" => "Shit Gelman Says", }) do |reponse|
+      route(/gelman( me)?$/i, command: true, help: { "gelman me" => "Shit Gelman Says", }) do |response|
         response.reply(":#{random(GELMANISMS)}:")
       end
 
-      route(/don( me)?$/i, command: true, help: { "don me" => "Hi I'm Don and my voice GOES LOUD NOW", }) do |reponse|
+      route(/don( me)?$/i, command: true, help: { "don me" => "Hi I'm Don and my voice GOES LOUD NOW", }) do |response|
         response.reply(":#{random(DONISMS)}:")
       end
 
-      route(/mattikus( me)?$/i, command: true, help: { "mattikus me" => "Funny mattikus sayings", }) do |reponse|
+      route(/mattikus( me)?$/i, command: true, help: { "mattikus me" => "Funny mattikus sayings", }) do |response|
         response.reply(":#{random(MATTIKUSISMS)}:")
       end
 
