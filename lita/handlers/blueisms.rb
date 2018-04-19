@@ -52,9 +52,9 @@ module Lita
         who = if response.match_data[1] == "blue" then
                 BLUEISMS.keys.shuffle.first
               else
-                response.match_data[1]
+                response.match_data[1].to_sym
               end
-        response.reply(%Q["#{BLUEISMS[who].shuffle.first}" -- @#{who}"])
+        response.reply(%Q["#{BLUEISMS[who].shuffle.first}" -- @#{who}])
       end
     end
 
