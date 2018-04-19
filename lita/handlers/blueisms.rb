@@ -40,19 +40,15 @@ module Lita
   module Handlers
     class Blueisms < Handler
       route(/gelman( me)?$/i, command: true, help: { "gelman me" => "Shit Gelman Says", }) do |response|
-        response.reply(":#{random(GELMANISMS)}:")
+        response.reply("#{GELMANISMS.shuffle.first} -- @gelman")
       end
 
       route(/don( me)?$/i, command: true, help: { "don me" => "Hi I'm Don and my voice GOES LOUD NOW", }) do |response|
-        response.reply(":#{random(DONISMS)}:")
+        response.reply("#{DONISMS.shuffle.first} -- @don")
       end
 
       route(/mattikus( me)?$/i, command: true, help: { "mattikus me" => "Funny mattikus sayings", }) do |response|
-        response.reply(":#{random(MATTIKUSISMS)}:")
-      end
-
-      def random(items)
-        items.shuffle.first
+        response.reply("#{MATTIKUSISMS.shuffle.first} -- @mattikus")
       end
     end
 
