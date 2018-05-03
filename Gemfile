@@ -9,4 +9,3 @@ gem "lita-github-web-hooks-core"
 
 # plugins
 gem "lita-ai"
-gem "lita-stocks"
