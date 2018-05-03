@@ -1,7 +1,7 @@
 module Lita
   module Handlers
     class Stocks < Handler
-      route(/stock(?: me)? (.*)/i, :stock, command: true, help: {
+      route(/stock(?: me)? ([\w .-_]+)$/i, :stock, command: true, help: {
         "stock me <symbol>" => "Get current price for <symbol>",
       })
 
@@ -12,13 +12,13 @@ module Lita
 
       def stock(symbol)
         resp = http.get("https://api.iextrading.com/1.0/stock/#{symbol}/quote")
-        stock_info = MultiJson.load(resp.body)
+        stock_info = MultiJson.load(resp.body)[0]
         response.reply("#{stock_info['symbol']}: #{stock_info['latestPrice']}")
       end
 
       def pypl
         resp = http.get("https://api.iextrading.com/1.0/stock/pypl/quote")
-        stock_info = MultiJson.load(resp.body)
+        stock_info = MultiJson.load(resp.body)[0]
         response.reply("PYPL: #{stock_info['latestPrice']}")
       end
     end
