@@ -10,13 +10,14 @@ module Lita
         "pypl me" => "Get current price for PYPL",
       })
 
-      def stock(symbol)
+      def stock(response)
+        symbol = response.match_data[1]
         resp = http.get("https://api.iextrading.com/1.0/stock/#{symbol}/quote")
         stock_info = MultiJson.load(resp.body)[0]
         response.reply("#{stock_info['symbol']}: #{stock_info['latestPrice']}")
       end
 
-      def pypl
+      def pypl(response)
         resp = http.get("https://api.iextrading.com/1.0/stock/pypl/quote")
         stock_info = MultiJson.load(resp.body)[0]
         response.reply("PYPL: #{stock_info['latestPrice']}")
