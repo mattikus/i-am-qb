@@ -1,11 +1,11 @@
 module Lita
   module Handlers
     class Stocks < Handler
-      route(/stock(?: me)? ([\w .-_]+)$/i, :stock, command: true, help: {
+      route(/^stock(?: me)? ([\w .-_]+)$/i, :stock, command: true, help: {
         "stock me <symbol>" => "Get current price for <symbol>",
       })
 
-      route(/(?:papa )(pypl|paypal)(?: me)?/i, :pypl, command: true, help: {
+      route(/^(papa paypal|pypl me)?$/i, :pypl, command: true, help: {
         "papa paypal" => "Get current price for PYPL",
         "pypl me" => "Get current price for PYPL",
       })
