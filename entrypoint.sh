@@ -12,11 +12,11 @@ cd $lita_dir
 
 # Grab the latest copy of QB
 if [[ ! -d ${lita_dir}/.git ]]; then
-  git clone --depth 1 $repo_url $lita_dir
+  /usr/bin/git clone --depth 1 $repo_url $lita_dir
 else
-  git fetch --depth 1 origin
-  git reset --hard origin/master
+  /usr/bin/git fetch --depth 1 origin
+  /usr/bin/git reset --hard origin/master
 fi
 
-bundle install
-exec bundle exec lita "$@"
+/usr/bin/bundle install
+exec /usr/bin/bundle exec lita "$@"
