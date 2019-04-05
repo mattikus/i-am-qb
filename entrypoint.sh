@@ -4,11 +4,13 @@ set -e -u -o pipefail
 
 echo ARGS="$@"
 env | sort
-repo_url=http://github.com/mattikus/i-am-qb
+repo_url=https://github.com/mattikus/i-am-qb
 lita_dir=/qb
 
 mkdir -p $lita_dir
 cd $lita_dir
+
+apt-get update && apt-get upgrade -y ca-certificates
 
 # Grab the latest copy of QB
 if [[ ! -d ${lita_dir}/.git ]]; then
