@@ -14,11 +14,11 @@ apt-get update && apt-get upgrade -y ca-certificates
 
 # Grab the latest copy of QB
 if [[ ! -d ${lita_dir}/.git ]]; then
-  /usr/bin/git clone --depth 1 $repo_url $lita_dir
+  git clone --depth 1 $repo_url $lita_dir
 else
-  /usr/bin/git fetch --depth 1 origin
-  /usr/bin/git reset --hard origin/master
+  git fetch --depth 1 origin
+  git reset --hard origin/master
 fi
 
-/usr/bin/bundle install
-exec /usr/bin/bundle exec lita "$@"
+bundle install
+exec bundle exec lita "$@"
