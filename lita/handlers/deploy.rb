@@ -33,7 +33,8 @@ module Lita
         Lita.logger
       end
 
-      def kill
+      def kill(response)
+        response.say("Goodbye cruel world!")
         exit!
       end
 
@@ -43,7 +44,7 @@ module Lita
         if payload["ref"] =~ /master/
           logger.info("Received push event, commiting suicide!")
           robot.send_message(devel_room, "Deploying sha: `#{payload["after"]}`")
-          kill
+          exit!
         end
       end
 
