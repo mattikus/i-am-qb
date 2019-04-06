@@ -3,9 +3,6 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    cleverbot_io (2.0.0)
-      httpclient (~> 2.8)
-      oj (~> 2.15)
     concurrent-ruby (1.1.5)
     eventmachine (1.2.7)
     faraday (0.15.4)
@@ -13,11 +10,9 @@ GEM
     faye-websocket (0.10.7)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
-    htmlentities (4.3.4)
     http_router (0.11.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
-    httpclient (2.8.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -49,7 +44,6 @@ GEM
     netaddr (1.5.1)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (2.18.5)
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (1.6.11)
@@ -71,8 +65,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cleverbot_io
-  htmlentities
   lita
   lita-github-web-hooks-core
   lita-slack

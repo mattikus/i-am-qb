@@ -17,8 +17,5 @@ Lita.configure do |config|
   config.adapters.slack.unfurl_links = true
   config.adapters.slack.unfurl_media = true
 
-  config.handlers.ai.api_user = ENV['LITA_AI_USER']
-  config.handlers.ai.api_key = ENV['LITA_AI_KEY']
-
   config.handlers.deploy.development_room = "#qb-devel"
 end
