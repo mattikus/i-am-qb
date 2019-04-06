@@ -1,4 +1,16 @@
 module Lita
+  module Extensions
+
+    # monkeypatch the validity check
+    module GitHubWebHooksCore
+      class HookReceiver < Handler
+        def valid_ip?(request)
+          true
+        end
+      end
+    end
+  end
+
   module Handlers
     class Deploy < Lita::Extensions::GitHubWebHooksCore::HookReceiver
       config :development_room
@@ -21,15 +33,21 @@ module Lita
         Lita.logger
       end
 
+      def kill
+        exit!
+      end
+
       # If we get a push event, kill server so it can be restarted by the
       # service manager
       on(:push) do |payload|
         if payload["ref"] =~ /master/
           logger.info("Received push event, commiting suicide!")
           robot.send_message(devel_room, "Deploying sha: `#{payload["after"]}`")
-          exit!
+          kill
         end
       end
+
+      route(/^die!*/i, :kill, command: true, {})
 
       Lita.register_handler(Deploy)
     end
