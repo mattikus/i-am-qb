@@ -47,7 +47,7 @@ module Lita
         end
       end
 
-      route(/^die!*/i, :kill, command: true, {})
+      route(/^die!*/i, :kill, command: true, help: {})
 
       Lita.register_handler(Deploy)
     end
