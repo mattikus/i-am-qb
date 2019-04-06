@@ -34,7 +34,7 @@ module Lita
       end
 
       def kill(response)
-        response.say("Goodbye cruel world!")
+        response.reply("Goodbye cruel world!")
         exit!
       end
 
