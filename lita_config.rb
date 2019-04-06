@@ -1,5 +1,5 @@
 # Load all custom private modules
-Dir["#{File.dirname(__FILE__)}/lita/**/*.rb"].each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/lib/**/*.rb"].each { |file| require file }
 
 Lita.configure do |config|
   config.robot.name = "qb"
