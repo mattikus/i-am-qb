@@ -10,8 +10,6 @@ lita_dir=/qb
 mkdir -p $lita_dir
 cd $lita_dir
 
-apt-get update && apt-get upgrade -y ca-certificates
-
 # Grab the latest copy of QB
 if [[ ! -d ${lita_dir}/.git ]]; then
   git clone --depth 1 $repo_url $lita_dir
